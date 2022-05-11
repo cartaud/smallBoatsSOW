@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    border: black solid 1px;
+}
+
+#title {
+    text-align: center;
+    color: gray;
+}
+
+span {
+    display: inline-block;
+    height: 0px;
+    width: 0px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#shipInfo {
+    margin-bottom: -20px;
+}
+
+#ssp {
+    margin-left: 1000px;
+    
+}
+
+#sur {
+    margin-left: 862px;
+}
+
+
+

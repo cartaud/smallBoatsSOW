@@ -1,0 +1,85 @@
+body {
+    background-color: white;
+  }
+  
+  #container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+    width: 50%;
+    margin-left: 25%;
+  }
+  
+  #container p {
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  #startBtn {
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    padding: 2px 4px;
+  }
+  
+  #btnContainer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .question {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 40px;
+    font-weight: 600;
+    font-size: 25px;
+  }
+  
+  
+  .options {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 5px;
+  }
+  
+  .answer {
+    text-align: left;
+    background-color: purple;
+    color: white;
+    margin: 1px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    padding: 2px 4px;
+  }
+  
+  #hullNumberInput {
+    margin: 5px;
+  }
+  
+  #submit {
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 2px 4px;
+  }
+  
+  button:hover {
+    opacity: 50%;
+  }
+  button:active {
+    border: dashed blue 2px;
+  }
