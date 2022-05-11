@@ -872,6 +872,7 @@ function showQuestion() {
         }
         btn.textContent = questions[questionX].answers[i].option;
         btn.addEventListener('click', next)
+        btn.addEventListener('touch', next)
     }
     //when user chooses an answer, this function determines if that actionRequired is true or false (right or wrong)
     function next() {
@@ -956,6 +957,13 @@ function endQuiz() { //when quiz is over, this will run
         hullNumber = document.querySelector('#hullNumberInput').value;
         localStorage.setItem('hullNumber', JSON.stringify(hullNumber))
         localStorage.setItem('toDoList', JSON.stringify(toDo)); //stores the sorted array in local
-        window.open('/Users/chadd/smallBoatsSOW/assets/assessment/assessmentOutput/assessmentOutput.html', '_self'); //opens up scoreboard page
+        window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessmentOutput/assessmentOutput.html', '_self'); //opens up scoreboard page
+    })
+    document.querySelector('#submit').addEventListener("touch", function(event) {
+        event.preventDefault();
+        hullNumber = document.querySelector('#hullNumberInput').value;
+        localStorage.setItem('hullNumber', JSON.stringify(hullNumber))
+        localStorage.setItem('toDoList', JSON.stringify(toDo)); //stores the sorted array in local
+        window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessmentOutput/assessmentOutput.html', '_self'); //opens up scoreboard page
     })
 }

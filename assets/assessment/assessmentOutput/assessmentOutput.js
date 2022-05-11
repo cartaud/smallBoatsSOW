@@ -61,7 +61,11 @@ function init() {
 
 backBtn.addEventListener('click', function() { //sends user back to quiz page
     localStorage.clear();
-    window.open('/Users/chadd/SOW/assessmentTemplate/assessmentTemplate.html', '_self');
+    window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessment.html', '_self');
+})
+backBtn.addEventListener('touch', function() { //sends user back to quiz page
+    localStorage.clear();
+    window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessment.html', '_self');
 })
 
 init() //initiates 
