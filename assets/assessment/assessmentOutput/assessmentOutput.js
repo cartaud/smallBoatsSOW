@@ -51,7 +51,7 @@ function renderToDo(toDo) {
         bilgeListEl.append(list);
     }
 }
-
+//is importing the array of responses via require method better than local storage? 
 function init() {
     let hullNumber = JSON.parse(localStorage.getItem('hullNumber')) || ''; 
     hullNumEl.innerHTML = `${hullNumber}`
@@ -59,13 +59,12 @@ function init() {
     renderToDo(toDo);
 }
 
-backBtn.addEventListener('click', function() { //sends user back to quiz page
+backBtn.addEventListener('click', restart)
+backBtn.addEventListener('touch', restart)
+
+function restart() {
     localStorage.clear();
     window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessment.html', '_self');
-})
-backBtn.addEventListener('touch', function() { //sends user back to quiz page
-    localStorage.clear();
-    window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessment.html', '_self');
-})
+}
 
 init() //initiates 

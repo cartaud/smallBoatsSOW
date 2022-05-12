@@ -952,18 +952,14 @@ function checkEnd() {
 
 function endQuiz() { //when quiz is over, this will run
     container.innerHTML = `<h2 style='font-size: 24px'>All done!</h2><form>Enter the hull number:<input id="hullNumberInput" maxLength='8' placeholder='7MRBXXXX'><button id='submit'>Submit</button>`;
-    document.querySelector('#submit').addEventListener("click", function(event) {
-        event.preventDefault();
-        hullNumber = document.querySelector('#hullNumberInput').value;
-        localStorage.setItem('hullNumber', JSON.stringify(hullNumber))
-        localStorage.setItem('toDoList', JSON.stringify(toDo)); //stores the sorted array in local
-        window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessmentOutput/assessmentOutput.html', '_self'); //opens up scoreboard page
-    })
-    document.querySelector('#submit').addEventListener("touch", function(event) {
-        event.preventDefault();
-        hullNumber = document.querySelector('#hullNumberInput').value;
-        localStorage.setItem('hullNumber', JSON.stringify(hullNumber))
-        localStorage.setItem('toDoList', JSON.stringify(toDo)); //stores the sorted array in local
-        window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessmentOutput/assessmentOutput.html', '_self'); //opens up scoreboard page
-    })
+    document.querySelector('#submit').addEventListener("click", generate)
+    document.querySelector('#submit').addEventListener("touch", generate)
+}
+
+function generate(event) {
+    event.preventDefault();
+    hullNumber = document.querySelector('#hullNumberInput').value;
+    localStorage.setItem('hullNumber', JSON.stringify(hullNumber))
+    localStorage.setItem('toDoList', JSON.stringify(toDo)); //stores the sorted array in local
+    window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessmentOutput/assessmentOutput.html', '_self'); //opens up scoreboard page
 }
