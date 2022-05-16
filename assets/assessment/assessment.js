@@ -12,12 +12,26 @@ let questions = [
   //Add a third object property for images and include the link for that image
   //Add global variable for fiberglass and user can enter sqft they want for each individual item so total sqft will be calculated at the end 
     {   section: "Hull",
-        question: "Hull",
+        question: "Hull fiber glass",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Fiber Glass", actionRequired: true,reason: 'has fiber glass damage', action: "using X square feet of fiber glass"},
-            {option: "Paint/Gel", actionRequired: true,reason: 'gel coat is faded', action: "applying a new coat of gel coat to specified surfaces"},
-            {option: "Glass + Paint", actionRequired: true,reason: 'has fiber glass damage and faded gel coat', action: "using X square feet of fiber glass and painting specified surfaces"},
+            {option: "Fiber Glass", actionRequired: true,reason: 'is damaged', action: "using X square feet of fiber glass"},
+            {option: "Replace", actionRequired: true},
+        ]
+    },
+    {   section: "Hull",
+        question: "Hull paint",
+        answers: [
+            {option: "Do Nothing", actionRequired: false},
+            {option: "Paint", actionRequired: true,reason: 'is unsat', action: "painting all exposed surfaces"},
+            {option: "Replace", actionRequired: true},
+        ]
+    },
+    {   section: "Hull",
+        question: "Hull gel coat",
+        answers: [
+            {option: "Do Nothing", actionRequired: false},
+            {option: "Paint/Gel", actionRequired: true,reason: 'is faded', action: "applying a new coat of gel coat to specified surfaces"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -182,7 +196,7 @@ let questions = [
         question: "Coxswains backrest",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Replace cushion", actionRequired: true, reason: 'cushion is in poor condition', action: "replacing cushion"},
+            {option: "Replace cushion", actionRequired: true, reason: 'cushion is unsat', action: "replacing cushion"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -197,7 +211,7 @@ let questions = [
         question: "Manual bilge pump",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Replace pump hose + clamps", actionRequired: true, reason: 'hoses and clamps are in poor condition', action: "replacing bilge pump hoses and securing with new stainless constant torque clamps"},
+            {option: "Replace pump hose + clamps", actionRequired: true, reason: 'hoses and clamps are unsat', action: "replacing bilge pump hoses and securing with new stainless constant torque clamps"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -213,14 +227,6 @@ let questions = [
         answers: [
             {option: "Do Nothing", actionRequired: false},
             {option: "Preservation", actionRequired: true, reason: 'has surface corrosion and missing paint', action: "removing surface corrosion and painting"},
-            {option: "Replace", actionRequired: true},
-        ]
-    },
-    {   section: "Deck",
-        question: "Stern light",
-        answers: [
-            {option: "Do Nothing", actionRequired: false},
-            {option: "Boat Alt", actionRequired: true, reason: 'boat alt is not accomplished', action: "accomplishing the stern light post boat alt to make light an LED"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -291,7 +297,7 @@ let questions = [
         question: "Console handrails",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Paint", actionRequired: true, reason: 'paint condition is poor', action: "painting handrails"},
+            {option: "Paint", actionRequired: true, reason: 'paint condition is unsat', action: "painting handrails"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -306,7 +312,7 @@ let questions = [
         question: "Security arch frame",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Paint", actionRequired: false, reason: 'paint condition is poor', action: "painting. Color shall match handrail color"},
+            {option: "Paint", actionRequired: false, reason: 'paint condition is unsat', action: "painting. Color shall match handrail color"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -397,10 +403,18 @@ let questions = [
         ]
     },
     {   section: "Electrical",
-        question: "Anchor light post",
+        question: "Stern light",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Bushing + locking pin", actionRequired: true, reason: 'bushings and locking pin are in poor condition/missing', action: "replacing bushings and double locking pin with new lanyard"},
+            {option: "Boat Alt", actionRequired: true, reason: 'boat alt is not accomplished', action: "accomplishing the stern light post boat alt to make light an LED"},
+            {option: "Replace", actionRequired: true},
+        ]
+    },
+    {   section: "Deck",
+        question: "Stern light post",
+        answers: [
+            {option: "Do Nothing", actionRequired: false},
+            {option: "Bushing + locking pin", actionRequired: true, reason: 'bushings and locking pin are unsat', action: "replacing bushings and double locking pin with new lanyard"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -508,7 +522,7 @@ let questions = [
         question: "Engine",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Paint", actionRequired: true, reason: 'paint condition is poor', action: 'soda blasting and paint'},
+            {option: "Paint", actionRequired: true, reason: 'paint condition is unsat', action: 'soda blasting and paint'},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -537,7 +551,7 @@ let questions = [
         question: "RACOR",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "New Filter", actionRequired: true, reason: 'filter is in poor condition', action: 'replacing filter'},
+            {option: "New Filter", actionRequired: true, reason: 'filter is unsat', action: 'replacing filter'},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -612,9 +626,9 @@ let questions = [
         question: "FLOCS pump",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "New Hose", actionRequired: true, reason: 'hose condition is poor', action: 'replacing hoses with new'},
-            {option: "New Handle", actionRequired: true, reason: 'handle condition is poor', action: 'replacing handle with new'},
-            {option: "New valve", actionRequired: true, reason: 'valve condition is poor', action: 'replacing valve with new'},
+            {option: "New Hose", actionRequired: true, reason: 'hose condition is unsat', action: 'replacing hoses with new'},
+            {option: "New Handle", actionRequired: true, reason: 'handle condition is unsat', action: 'replacing handle with new'},
+            {option: "New valve", actionRequired: true, reason: 'valve condition is unsat', action: 'replacing valve with new'},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -622,9 +636,9 @@ let questions = [
         question: "Fuel stripping pump",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "New Hose", actionRequired: true,  reason: 'hose condition is poor', action: 'replacing hoses with new'},
-            {option: "New Handle", actionRequired: true, reason: 'handle condition is poor', action: 'replacing handle with new'},
-            {option: "New valve", actionRequired: true, reason: 'valve condition is poor', action: 'replacing valve with new'},
+            {option: "New Hose", actionRequired: true,  reason: 'hose condition is unsat', action: 'replacing hoses with new'},
+            {option: "New Handle", actionRequired: true, reason: 'handle condition is unsat', action: 'replacing handle with new'},
+            {option: "New valve", actionRequired: true, reason: 'valve condition is unsat', action: 'replacing valve with new'},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -654,7 +668,7 @@ let questions = [
         question: "Sea strainer",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Class B overhaul", actionRequired: true, reason: 'condition is poor', action: 'accomplishing class B overhaul'},
+            {option: "Class B overhaul", actionRequired: true, reason: 'condition is unsat', action: 'accomplishing class B overhaul'},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -709,6 +723,53 @@ let questions = [
         ]
     },
     {   section: "Electrical",
+        question: "MOBI head",
+        answers: [
+            {option: "Do Nothing", actionRequired: false},
+            {option: "paint", actionRequired: true, reason: 'has missing paint', action: 'painting white'},
+            {option: "broken antenna(s)", actionRequired: true, reason: 'antennas(s) are damaged', action: 'replacing damaged antenna(s)'},
+            {option: "Replace", actionRequired: true},
+        ]
+    },
+    {   section: "Deck",
+        question: "MOBI head post",
+        answers: [
+            {option: "Do Nothing", actionRequired: false},
+            {option: "paint", actionRequired: true, reason: 'has missing paint', action: 'painting grey'},
+            {option: "Bushing + locking pin", actionRequired: true, reason: 'bushings and locking pin are in poor condition/missing', action: "replacing bushings and double locking pin with new lanyard"},
+            {option: "Replace", actionRequired: true},
+        ]
+    },
+    {   section: "Electrical",
+        question: "MOBI display",
+        answers: [
+            {option: "Do Nothing", actionRequired: false},
+            {option: "Replace", actionRequired: true},
+        ]
+    },
+    {   section: "Electrical",
+        question: "MOBI power cable",
+        answers: [
+            {option: "Do Nothing", actionRequired: false},
+            {option: "Replace", actionRequired: true},
+        ]
+    },
+    {   section: "Electrical",
+        question: "MOBI data cable",
+        answers: [
+            {option: "Do Nothing", actionRequired: false},
+            {option: "Replace", actionRequired: true},
+        ]
+    },
+    {   section: "Console",
+        question: "MOBI display bracket",
+        answers: [
+            {option: "Do Nothing", actionRequired: false},
+            {option: "Replace", actionRequired: true},
+        ]
+    },
+
+    {   section: "Engine",
         question: "Forward drive shaft bearings",
         answers: [
             {option: "Do Nothing", actionRequired: false},
@@ -821,7 +882,7 @@ let questions = [
         question: "Seacock",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Class B", actionRequired: true, reason: 'condition is poor', action: 'accomplishing the requirements of class B overhaul'},
+            {option: "Class B", actionRequired: true, reason: 'condition is unsat', action: 'accomplishing the requirements of class B overhaul'},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -856,7 +917,6 @@ function startingQuiz() {
 }
 //neatly display each question one at a time until user chooses an answer
 function showQuestion() {
-    
     options.innerHTML = '';
     question.innerHTML = questions[questionX].question;
     for (let i=0;i<questions[questionX].answers.length;i++) {
@@ -879,28 +939,28 @@ function showQuestion() {
         if (this.attributes[1].value == 'true') { //if user selects an option that requires an action, this runs
             if (this.attributes[2].value == 'Replace') {
                 if (this.attributes[3].value == 'Hull') {
-                    toDo.hull.push(`${questions[questionX].question} condition is poor, recommend replacing with new.`)
+                    toDo.hull.push(`${questions[questionX].question} condition is unsat, recommend replacing with new.`)
                 }
                 else if (this.attributes[3].value == 'Outdrive') {
-                    toDo.outdrive.push(`${questions[questionX].question} condition is poor, recommend replacing with new.`)
+                    toDo.outdrive.push(`${questions[questionX].question} condition is unsat, recommend replacing with new.`)
                 }
                 else if (this.attributes[3].value == 'Sponson') {
-                    toDo.sponson.push(`${questions[questionX].question} condition is poor, recommend replacing with new.`)
+                    toDo.sponson.push(`${questions[questionX].question} condition is unsat, recommend replacing with new.`)
                 }
                 else if (this.attributes[3].value == 'Deck') {
-                    toDo.deck.push(`${questions[questionX].question} condition is poor, recommend replacing with new.`)
+                    toDo.deck.push(`${questions[questionX].question} condition is unsat, recommend replacing with new.`)
                 }
                 else if (this.attributes[3].value == 'Console') {
-                    toDo.console.push(`${questions[questionX].question} condition is poor, recommend replacing with new.`)
+                    toDo.console.push(`${questions[questionX].question} condition is unsat, recommend replacing with new.`)
                 }
                 else if (this.attributes[3].value == 'Electrical') {
-                    toDo.electrical.push(`${questions[questionX].question} condition is poor, recommend replacing with new.`)
+                    toDo.electrical.push(`${questions[questionX].question} condition is unsat, recommend replacing with new.`)
                 }
                 else if (this.attributes[3].value == 'Engine') {
-                    toDo.engine.push(`${questions[questionX].question} condition is poor, recommend replacing with new.`)
+                    toDo.engine.push(`${questions[questionX].question} condition is unsat, recommend replacing with new.`)
                 }
                 else if (this.attributes[3].value == 'Aft Bilge') {
-                    toDo.bilge.push(`${questions[questionX].question} condition is poor, recommend replacing with new.`)
+                    toDo.bilge.push(`${questions[questionX].question} condition is unsat, recommend replacing with new.`)
                 }
                 questionX++;
                 checkEnd();

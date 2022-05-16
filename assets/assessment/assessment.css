@@ -83,3 +83,10 @@ body {
   button:active {
     border: dashed blue 2px;
   }
+
+  @media screen and (max-width: 992px) {
+    button {
+      width: 100%;
+      height: 40px;
+    }
+  }
