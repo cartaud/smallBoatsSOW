@@ -78,7 +78,7 @@ function addAssessment() {
 }
 
 function makeSow() {
-    window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/sow/sow.html', '_blank');
+    window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessmentOutput/sow/sow.html', '_blank');
 }
 
 init() //initiates 
