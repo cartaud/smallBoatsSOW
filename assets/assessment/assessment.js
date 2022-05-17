@@ -1,14 +1,14 @@
 //targeting all html elements that I will need
-let startBtn = document.querySelector("#startBtn");
+const startBtn = document.querySelector("#startBtn");
 startBtn.addEventListener("click", startingQuiz);
-let container = document.querySelector('#container')
-let question = document.createElement('div');
-let options = document.createElement('div');
+const container = document.querySelector('#container')
+const question = document.createElement('div');
+const options = document.createElement('div');
 question.classList.add('question');
 options.classList.add('options');
 
 //array of all quiz questions and the different options and their value
-let questions = [
+const questions = [
   //Add a third object property for images and include the link for that image
   //Add global variable for fiberglass and user can enter sqft they want for each individual item so total sqft will be calculated at the end 
     {   section: "hull",
@@ -910,12 +910,16 @@ let questions = [
 ]
 
 let questionX = 0;
+
 //stores an object of arrays that contains the condition for each section
-const toDo = JSON.parse(localStorage.getItem('toDoList')) || {hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[]}; 
+let assessmentNum = JSON.parse(localStorage.getItem('assessmentNumber')) || 1;
+const toDo = JSON.parse(localStorage.getItem('toDoList')) || {1:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[]}, 2:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[]}}; 
 let hullNumber = JSON.parse(localStorage.getItem('hullNumber')) || ''; 
 //when button is pressed, the timer starts and the required html elements get appended to container
 function startingQuiz() {
-    localStorage.clear();
+    if (assessmentNum == 1) {
+        localStorage.clear();
+    }
     container.innerHTML = '';
     container.append(question);
     container.append(options);
@@ -926,7 +930,7 @@ function showQuestion() {
     options.innerHTML = '';
     question.innerHTML = questions[questionX].question;
     for (let i=0;i<questions[questionX].answers.length;i++) {
-        var btn = document.createElement('button');
+        const btn = document.createElement('button');
         options.append(btn);
         btn.classList.add('answer');
         btn.setAttribute('data-actionRequired', questions[questionX].answers[i].actionRequired)
@@ -961,7 +965,8 @@ function submitCustom() {
     const recommendation = document.querySelector('#customAction').value
     const item = questions[questionX].question
     const section = questions[questionX].section
-    toDo[section].push(`${item} condition is ${condition}, recommend ${recommendation}.`)
+    toDo[assessmentNum][section].push(`${item} condition is ${condition}, recommend ${recommendation}.`)
+    console.log(toDo)
     questionX++;
     checkEnd();
 }
@@ -971,10 +976,10 @@ function submitCustom() {
         if (this.attributes[1].value == 'true') { //if user selects an option that requires an action, this runs
             const section = questions[questionX].section
             if (this.attributes[2].value == 'Replace') {
-                toDo[section].push(`${questions[questionX].question} condition is beyond preservation or repair, recommend replacing with new.`)
+                toDo[assessmentNum][section].push(`${questions[questionX].question} condition is beyond preservation or repair, recommend replacing with new.`)
             }
             else if (this.attributes[2].value != 'Replace') {
-                toDo[section].push(`${questions[questionX].question} ${this.attributes[3].value}, recommend ${this.attributes[4].value}.`)
+                toDo[assessmentNum][section].push(`${questions[questionX].question} ${this.attributes[3].value}, recommend ${this.attributes[4].value}.`)
             }
             questionX++;
             checkEnd();
@@ -1004,6 +1009,7 @@ function endQuiz() { //when quiz is over, this will run
 function generate(event) {
     event.preventDefault();
     hullNumber = document.querySelector('#hullNumberInput').value;
+    localStorage.setItem('assessmentNumber', JSON.stringify(assessmentNum))
     localStorage.setItem('hullNumber', JSON.stringify(hullNumber))
     localStorage.setItem('toDoList', JSON.stringify(toDo)); //stores the sorted array in local
     window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessmentOutput/assessmentOutput.html', '_self'); //opens up scoreboard page

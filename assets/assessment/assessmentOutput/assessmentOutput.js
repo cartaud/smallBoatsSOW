@@ -9,6 +9,9 @@ const bilgeListEl = document.querySelector('#bilgeList');
 const backBtn = document.querySelector('#back');
 const hullNumEl = document.querySelector('#hullNum');
 
+
+
+
 function renderToDo(toDo) {
     for (let i=0; i<toDo.hull.length;i++) { //loops for amount of data entries in each section
         const list = document.createElement('li')
@@ -55,15 +58,23 @@ function renderToDo(toDo) {
 function init() {
     let hullNumber = JSON.parse(localStorage.getItem('hullNumber')) || ''; 
     hullNumEl.innerHTML = `${hullNumber}`
-    let toDo = JSON.parse(localStorage.getItem('toDoList')); //retrieves stored data from local
-    renderToDo(toDo);
+    const toDo = JSON.parse(localStorage.getItem('toDoList')) ;
+    let assessmentNum = JSON.parse(localStorage.getItem('assessmentNumber')) || 1; //retrieves stored data from local
+    renderToDo(toDo[assessmentNum]);
 }
 
-backBtn.addEventListener('click', restart)
-backBtn.addEventListener('touch', restart)
+backBtn.addEventListener('click', addAssessment)
+backBtn.addEventListener('touch', addAssessment)
 
-function restart() {
-    localStorage.clear();
+function addAssessment() {
+    if (assessmentNum == 1 ) {
+        assessmentNum++ 
+    }
+    else {
+        assessmentNum--
+        localStorage.clear();
+    }
+    localStorage.setItem('assessmentNumber', JSON.stringify(assessmentNum))
     window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessment.html', '_self');
 }
 
