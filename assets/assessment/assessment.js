@@ -913,8 +913,7 @@ let questionX = 0;
 
 //stores an object of arrays that contains the condition for each section
 let assessmentNum = JSON.parse(localStorage.getItem('assessmentNumber')) || 1;
-const toDo = JSON.parse(localStorage.getItem('toDoList')) || {1:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[]}, 2:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[]}}; 
-let hullNumber = JSON.parse(localStorage.getItem('hullNumber')) || ''; 
+const toDo = JSON.parse(localStorage.getItem('toDoList')) || {1:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[], hullNum:[]}, 2:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[],hullNum:[]}}; 
 //when button is pressed, the timer starts and the required html elements get appended to container
 function startingQuiz() {
     if (assessmentNum == 1) {
@@ -1008,9 +1007,8 @@ function endQuiz() { //when quiz is over, this will run
 
 function generate(event) {
     event.preventDefault();
-    hullNumber = document.querySelector('#hullNumberInput').value;
+    toDo[assessmentNum].hullNum.push(document.querySelector('#hullNumberInput').value);
     localStorage.setItem('assessmentNumber', JSON.stringify(assessmentNum))
-    localStorage.setItem('hullNumber', JSON.stringify(hullNumber))
     localStorage.setItem('toDoList', JSON.stringify(toDo)); //stores the sorted array in local
     window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessmentOutput/assessmentOutput.html', '_self'); //opens up scoreboard page
 }

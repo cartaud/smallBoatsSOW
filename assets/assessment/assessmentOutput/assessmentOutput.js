@@ -6,13 +6,16 @@ const consoleListEl = document.querySelector('#consoleList');
 const electricalListEl = document.querySelector('#electricalList');
 const engineListEl = document.querySelector('#engineList');
 const bilgeListEl = document.querySelector('#bilgeList');
-const backBtn = document.querySelector('#back');
 const hullNumEl = document.querySelector('#hullNum');
-
+const addAssBtn = document.querySelector('#back');
+addAssBtn.addEventListener('click', addAssessment)
+addAssBtn.addEventListener('touch', addAssessment)
+const toSowBtn = document.querySelector('#toSow')
+toSowBtn.addEventListener('click', makeSow)
+toSowBtn.addEventListener('touch', makeSow)
 //retrieves stored data from local
 const toDo = JSON.parse(localStorage.getItem('toDoList')) ;
 let assessmentNum = JSON.parse(localStorage.getItem('assessmentNumber')) || 1;
-let hullNumber = JSON.parse(localStorage.getItem('hullNumber')) || ''; 
 
 function renderToDo(toDo) {
     for (let i=0; i<toDo.hull.length;i++) { //loops for amount of data entries in each section
@@ -56,14 +59,11 @@ function renderToDo(toDo) {
         bilgeListEl.append(list);
     }
 }
-//is importing the array of responses via require method better than local storage? 
+
 function init() {
-    hullNumEl.innerHTML = `${hullNumber}`
+    hullNumEl.innerHTML = `${toDo[assessmentNum].hullNum[0]}`
     renderToDo(toDo[assessmentNum]);
 }
-
-backBtn.addEventListener('click', addAssessment)
-backBtn.addEventListener('touch', addAssessment)
 
 function addAssessment() {
     if (assessmentNum == 1 ) {
@@ -75,6 +75,10 @@ function addAssessment() {
     }
     localStorage.setItem('assessmentNumber', JSON.stringify(assessmentNum))
     window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessment.html', '_self');
+}
+
+function makeSow() {
+    window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/sow/sow.html', '_blank');
 }
 
 init() //initiates 
