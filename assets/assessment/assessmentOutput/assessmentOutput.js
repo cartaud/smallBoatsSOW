@@ -9,8 +9,10 @@ const bilgeListEl = document.querySelector('#bilgeList');
 const backBtn = document.querySelector('#back');
 const hullNumEl = document.querySelector('#hullNum');
 
-
-
+//retrieves stored data from local
+const toDo = JSON.parse(localStorage.getItem('toDoList')) ;
+let assessmentNum = JSON.parse(localStorage.getItem('assessmentNumber')) || 1;
+let hullNumber = JSON.parse(localStorage.getItem('hullNumber')) || ''; 
 
 function renderToDo(toDo) {
     for (let i=0; i<toDo.hull.length;i++) { //loops for amount of data entries in each section
@@ -56,10 +58,7 @@ function renderToDo(toDo) {
 }
 //is importing the array of responses via require method better than local storage? 
 function init() {
-    let hullNumber = JSON.parse(localStorage.getItem('hullNumber')) || ''; 
     hullNumEl.innerHTML = `${hullNumber}`
-    const toDo = JSON.parse(localStorage.getItem('toDoList')) ;
-    let assessmentNum = JSON.parse(localStorage.getItem('assessmentNumber')) || 1; //retrieves stored data from local
     renderToDo(toDo[assessmentNum]);
 }
 
