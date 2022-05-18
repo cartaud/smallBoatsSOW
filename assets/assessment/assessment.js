@@ -15,7 +15,7 @@ const questions = [
         question: "Hull fiber glass",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Repair Fiber Glass", actionRequired: true,reason: 'requires repair', action: "using X square feet of fiber glass"},
+            {option: "Repair Fiber Glass", actionRequired: true,reason: 'requires repair', action: "using X square feet of fiber glass", sow:'Accomplish x square feet of fiber glass repair to the hull'},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -23,7 +23,7 @@ const questions = [
         question: "Hull paint",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Paint Specified Areas", actionRequired: true,reason: 'is unsat', action: "painting all exposed surfaces"},
+            {option: "Paint Specified Areas", actionRequired: true,reason: 'is unsat', action: "painting all exposed surfaces", sow:'Accomplis X square feet of painting to the hull'},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -31,7 +31,7 @@ const questions = [
         question: "Hull gel coat",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "New Gel Coat", actionRequired: true,reason: 'is faded', action: "applying a new coat of gel coat to specified surfaces"},
+            {option: "New Gel Coat", actionRequired: true,reason: 'is faded', action: "applying a new coat of gel coat to specified surfaces", sow:'Accomplish X square feet of gelcoat/topcoat repairs'},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -39,7 +39,7 @@ const questions = [
         question: "Outdrive",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "100 hour service", actionRequired: true, reason: 'requires service', action: "accomplishing the requirements of 100 hour service"},
+            {option: "100 hour service", actionRequired: true, reason: 'requires service', action: "accomplishing the requirements of 100 hour service", sow:'Perform Mercury MerCruiser Bravo 2 “100 hour maintenance” service, replace gear oil, re-torque gimbal ring U-bolt nuts, check for missing or damaged parts, and lubricate the cables and linkages'},
             {option: "Replace", actionRequired: true}
         ]
     },
@@ -47,7 +47,7 @@ const questions = [
         question: "Outdrive paint",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Paint", actionRequired: true, reason: 'has exposed metal surfaces', action: "painting all surfaces where exposed metal is showing"},
+            {option: "Paint", actionRequired: true, reason: 'has exposed metal surfaces', action: "painting all surfaces where exposed metal is showing", sow:"Accomplish touch up paint on outdrive areas where exposed/unpainted surfaces are showing"},
             {option: "Replace", actionRequired: true}
         ]
     },
@@ -55,7 +55,7 @@ const questions = [
         question: "EM tiller bracket",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Missing", actionRequired: true, reason: 'is missing', action: "procuring new and installing"},
+            {option: "Missing", actionRequired: true, reason: 'is missing', action: "procuring new and installing", sow: "Procure and install new, (1 EA/craft) emergency tiller arm bracket assembly."},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -63,7 +63,7 @@ const questions = [
         question: "EM tiller arm",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Missing", actionRequired: true, reason: 'is missing', action: "procuring new and installing"},
+            {option: "Missing", actionRequired: true, reason: 'is missing', action: "procuring new and installing", sow: "procure and install new, (1 EA/craft) emergency tiller arm"},
             {option: "Replace", actionRequired: true},
         ]
         },
@@ -71,7 +71,7 @@ const questions = [
         question: "Propeller",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Paint", actionRequired: true, reason: 'has exposed metal surfaces', action: "painting propeller"},
+            {option: "Paint", actionRequired: true, reason: 'has exposed metal surfaces', action: "painting propeller", sow:"Accomplish touch up paint on propeller areas where exposed/unpainted surfaces are showing"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -93,7 +93,7 @@ const questions = [
         question: "Tilt/Trim indicators",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Calibrate", actionRequired: true, reason: 'are not reading the correct trim level', action: "calibrating tilt/trim indicators"},
+            {option: "Calibrate", actionRequired: true, reason: 'are not reading the correct trim level', action: "calibrating tilt/trim indicators", sow:"Accomplish the following, calibrate tilt/trim indicators so the trim gauge reads the correct position."},
             {option: "Replace", actionRequired: true,},
         ]
     },
@@ -108,7 +108,7 @@ const questions = [
         question: "Sponson",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "SLEP 1", actionRequired: true, reason: 'condition is below average', action: "accomplishing the requirements of SLEP 1"},
+            {option: "SLEP 1", actionRequired: true, reason: 'condition is below average', action: "accomplishing the requirements of SLEP 1", sow:"Remove existing Sponson, accomplish the requirements of OEM (Wing Inflatables) Sponson SLEP \"Level One Overhaul\". Reinstall Sponson with new hardware retainers, transom straps with new hardware. Test for leaks. Allowable leakage: NONE"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -116,7 +116,7 @@ const questions = [
         question: "Skirt retainers",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Preservation", actionRequired: true, reason: 'have surface corrosion', action: "accomplishing in place preservation"},
+            {option: "Preservation", actionRequired: true, reason: 'have surface corrosion', action: "accomplishing in place preservation", sow:"Accomplish in place preservation to remove surface corrosion from the sponson skirt retainers in its entirety"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -124,7 +124,7 @@ const questions = [
         question: "Transom attachment strap",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Repair(delaminating)", actionRequired: true, reason: 'is delaminating', action: "gluing attachment strap to sponson to prevent peel up"},
+            {option: "Repair(delaminating)", actionRequired: true, reason: 'is delaminating', action: "gluing attachment strap to sponson to prevent peel up", sow:"Accomplish preservation to secure sponson transom straps to sponson"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -202,7 +202,7 @@ const questions = [
         question: "Coxswains backrest",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Replace cushion", actionRequired: true, reason: 'cushion is unsat', action: "replacing cushion"},
+            {option: "Replace cushion", actionRequired: true, reason: 'cushion is unsat', action: "replacing cushion", sow:"Remove existing and install new (One EA/craft), coxains backrest cushion and lacing material"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -217,7 +217,7 @@ const questions = [
         question: "Manual bilge pump",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Replace pump hose + clamps", actionRequired: true, reason: 'hoses and clamps are unsat', action: "replacing bilge pump hoses and securing with new stainless constant torque clamps"},
+            {option: "Replace pump hose + clamps", actionRequired: true, reason: 'hoses and clamps are unsat', action: "replacing bilge pump hoses and securing with new stainless constant torque clamps", sow:"Remove existing and install new (One EA/craft), manual bilge pump hose with (4 EA/craft) new double constant torque clamps on each end"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -232,7 +232,7 @@ const questions = [
         question: "Transom cap",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Preservation", actionRequired: true, reason: 'has surface corrosion and missing paint', action: "removing surface corrosion and painting"},
+            {option: "Preservation", actionRequired: true, reason: 'has surface corrosion and missing paint', action: "removing surface corrosion and painting", sow:"Prepare and paint transom cap. Color; Haze Grey"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -303,7 +303,7 @@ const questions = [
         question: "Console handrails",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Paint", actionRequired: true, reason: 'paint condition is unsat', action: "painting handrails"},
+            {option: "Paint", actionRequired: true, reason: 'paint condition is unsat', action: "painting handrails", sow:"Prepare and paint console handrails. Color; Haze Grey"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -318,7 +318,7 @@ const questions = [
         question: "Security arch frame",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Paint", actionRequired: false, reason: 'paint condition is unsat', action: "painting. Color shall match handrail color"},
+            {option: "Paint", actionRequired: false, reason: 'paint condition is unsat', action: "painting. Color shall match handrail color", sow:"Prepare and paint security arch fram. Color; Black"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -340,7 +340,7 @@ const questions = [
         question: "Throttle control head",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Preservation", actionRequired: false, reason: 'has surface corrosion', action: "removing surface corrosion and replacing throttle position indicator"},
+            {option: "Preservation", actionRequired: false, reason: 'has surface corrosion', action: "removing surface corrosion and replacing throttle position indicator", sow:"Accomplish preservation to remove surface corrosion from the throttle control head"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -355,7 +355,7 @@ const questions = [
         question: "Label plates",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Preservation", actionRequired: false, reason: 'are unreadable', action: "cleaning and restoring X label plates"},
+            {option: "Preservation", actionRequired: false, reason: 'are unreadable', action: "cleaning and restoring X label plates", sow:"Accomplish preservation to restore (x EA/craft), placards and label plates"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -412,7 +412,7 @@ const questions = [
         question: "Stern light",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Boat Alt", actionRequired: true, reason: 'boat alt is not accomplished', action: "accomplishing the stern light post boat alt to make light an LED"},
+            {option: "Boat Alt", actionRequired: true, reason: 'boat alt is not accomplished', action: "accomplishing the stern light post boat alt to make light an LED", sow:"REMOVE THIS LINE AND ADD STERN LIGHT BOAT ALT TO BA SECTION"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -420,7 +420,7 @@ const questions = [
         question: "Stern light post",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Bushing + locking pin", actionRequired: true, reason: 'bushings and locking pin are unsat', action: "replacing bushings and double locking pin with new lanyard"},
+            {option: "Bushing + locking pin", actionRequired: true, reason: 'bushings and locking pin are unsat', action: "replacing bushings and double locking pin with new lanyard", sow:"Remove existing and install new (One EA/craft), stern light post double locking pin with lanyard and (2 EA/craft) stern light post bushings"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -435,8 +435,8 @@ const questions = [
         question: "GPS",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Mounting bracket", actionRequired: true, reason: 'mounting bracket is broken', action: "replacing GPS mounting bracket"},
-            {option: "Update (72cv, depth sounder, mounting bracket)", actionRequired: true, reason: 'is an older version', action: "installing Garmin ECHOMAP PLUS 72cv with depth sounder/transducer assemblies and mounting bracket"},
+            {option: "Mounting bracket", actionRequired: true, reason: 'mounting bracket is broken', action: "replacing GPS mounting bracket", sow:"Remove existing and install new (One EA/craft), GPS mounting bracket assembly"},
+            {option: "Update (72cv, depth sounder, mounting bracket)", actionRequired: true, reason: 'is an older version', action: "installing Garmin ECHOMAP PLUS 72cv with depth sounder/transducer assemblies and mounting bracket", sow:"Remove existing and install new GPS display units using Garmin ECHOMAP PLUS 742xs with depth sounder/transducer assemblies and mounting bracket (one EA/craft)."},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -444,7 +444,7 @@ const questions = [
         question: "Breakers",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "x breakers", actionRequired: true, reason: 'condition is poor', action: "replacing X amount of breakers"},
+            {option: "x breakers", actionRequired: true, reason: 'condition is poor', action: "replacing X amount of breakers", sow:"Remove existing and install new (X EA/craft), SPECIFY BREAKERS HERE breakers "},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -459,7 +459,7 @@ const questions = [
         question: "Diesel view",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Boat alt", actionRequired: true, reason: 'does not have required boat alt', action: "accomplishing the diesel-view/smart-craft boat alteration"},
+            {option: "Boat alt", actionRequired: true, reason: 'does not have required boat alt', action: "accomplishing the diesel-view/smart-craft boat alteration", sow:"REMOVE THIS AND ADD DIESEL VIEW BOAT ALT"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -488,7 +488,7 @@ const questions = [
         question: "Spotlight receptacle",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "New Cap + Lanyard", actionRequired: true, reason: 'cap is broken/missing', action: 'replacing cap and lanyard with new'},
+            {option: "New Cap + Lanyard", actionRequired: true, reason: 'cap is broken/missing', action: 'replacing cap and lanyard with new', sow:"Remove existing and install new (One EA/craft), spotlight receptacle and lanyard"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -496,7 +496,7 @@ const questions = [
         question: "Strobe light receptacle",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "New Cap + Lanyard", actionRequired: true, reason: 'cap is broken/missing', action: 'replacing cap and lanyard with new'},
+            {option: "New Cap + Lanyard", actionRequired: true, reason: 'cap is broken/missing', action: 'replacing cap and lanyard with new', sow:"Remove existing and install new (One EA/craft), strobe light receptacle and lanyard"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -504,7 +504,7 @@ const questions = [
         question: "Loud hailer receptacle",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "New Cap + Lanyard", actionRequired: true, reason: 'cap is broken/missing', action: 'replacing cap and lanyard with new'},
+            {option: "New Cap + Lanyard", actionRequired: true, reason: 'cap is broken/missing', action: 'replacing cap and lanyard with new', sow:"Remove existing and install new (One EA/craft), loudhailer receptacle and lanyard"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -519,8 +519,8 @@ const questions = [
         question: "Compass",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Compass Guard BA", actionRequired: true, reason: 'guard boat alt has not been accomplished', action: 'accomplishing boat alteration to install compass guard'},
-            {option: "Compass Guard Replace", actionRequired: true, reason: 'guard is damaged', action: 'install new compass guard'},
+            {option: "Compass Guard BA", actionRequired: true, reason: 'guard boat alt has not been accomplished', action: 'accomplishing boat alteration to install compass guard', sow:"REMOVE THIS AND ADD COMPASS GUARD BA"},
+            {option: "Compass Guard Replace", actionRequired: true, reason: 'guard is damaged', action: 'install new compass guard', sow:"Remove existing, template from existing, and install new (One EA/craft) compass guard assembly"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -528,7 +528,7 @@ const questions = [
         question: "Engine",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Paint", actionRequired: true, reason: 'paint condition is unsat', action: 'soda blasting and paint'},
+            {option: "Paint", actionRequired: true, reason: 'paint condition is unsat', action: 'soda blasting and paint', sow:"Accomplish soda blast and preservation of the MPDE assemblies. Ensure that blast media does not enter or damage any sensitive engine components such as, starter, alternator, pulley bearings, wiring, electronic equipment, and internal engine components. Do NOT paint hoses or paint/deface data plates"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -557,7 +557,7 @@ const questions = [
         question: "RACOR",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "New Filter", actionRequired: true, reason: 'filter is unsat', action: 'replacing filter'},
+            {option: "New Filter", actionRequired: true, reason: 'filter is unsat', action: 'replacing filter', sow:"Remove existing and install new (One EA/craft), RACOR fuel filter element"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -600,7 +600,7 @@ const questions = [
         question: "Engine starter",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Bench Test", actionRequired: true, reason: 'cranks but does not start', action: 'bench testing to verify the starter is meeting the required specifications'},
+            {option: "Bench Test", actionRequired: true, reason: 'cranks but does not start', action: 'bench testing to verify the starter is meeting the required specifications', sow:"Remove existing, clean, inspect, bench test using OEM specification, and reinstall MPDE starter assembly"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -608,7 +608,7 @@ const questions = [
         question: "Engine alternator",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Bench Test", actionRequired: true, reason: 'is not providing the required amount of charge to batteries', action: 'bench testing to verify the alternator is meeting the required specifications'},
+            {option: "Bench Test", actionRequired: true, reason: 'is not providing the required amount of charge to batteries', action: 'bench testing to verify the alternator is meeting the required specifications', sow:"Remove existing, clean, inspect, bench test using OEM specification, and reinstall MPDE starter assembly"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -616,7 +616,7 @@ const questions = [
         question: "Engine after-cooler",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Pressure Test", actionRequired: true, reason: 'condition is average', action: 'pressure testing to verify the after-cooler can hold the specified amount of pressure'},
+            {option: "Pressure Test", actionRequired: true, reason: 'condition is average', action: 'pressure testing to verify the after-cooler can hold the specified amount of pressure', sow:"Remove existing, clean, inspect, pressure test, reseal, and reinstall, MPDE after-cooler assembly"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -624,7 +624,7 @@ const questions = [
         question: "Engine heat exchanger",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Pressure Test", actionRequired: true, reason: 'condition is average', action: 'pressure testing to verify the after-cooler can hold the specified amount of pressure'},
+            {option: "Pressure Test", actionRequired: true, reason: 'condition is average', action: 'pressure testing to verify the heat exchanger can hold the specified amount of pressure', sow:"Remove existing, clean, inspect, pressure test, reseal, and reinstall, MPDE heat exchanger assembly"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -632,9 +632,9 @@ const questions = [
         question: "FLOCS pump",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "New Hose", actionRequired: true, reason: 'hose condition is unsat', action: 'replacing hoses with new'},
-            {option: "New Handle", actionRequired: true, reason: 'handle condition is unsat', action: 'replacing handle with new'},
-            {option: "New valve", actionRequired: true, reason: 'valve condition is unsat', action: 'replacing valve with new'},
+            {option: "New Hose", actionRequired: true, reason: 'hose condition is unsat', action: 'replacing hoses with new', sow:"Remove existing and install new (One EA/craft), FLOCS pump hose and hose fittings"},
+            {option: "New Handle", actionRequired: true, reason: 'handle condition is unsat', action: 'replacing handle with new', sow:"Remove existing and install new (One EA/craft), FLOCS pump handle"},
+            {option: "New valve", actionRequired: true, reason: 'valve condition is unsat', action: 'replacing valve with new', sow:"Remove existing and install new (One Ea/craft), FLOCS pump valve handle assembly"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -642,9 +642,9 @@ const questions = [
         question: "Fuel stripping pump",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "New Hose", actionRequired: true,  reason: 'hose condition is unsat', action: 'replacing hoses with new'},
-            {option: "New Handle", actionRequired: true, reason: 'handle condition is unsat', action: 'replacing handle with new'},
-            {option: "New valve", actionRequired: true, reason: 'valve condition is unsat', action: 'replacing valve with new'},
+            {option: "New Hose", actionRequired: true,  reason: 'hose condition is unsat', action: 'replacing hoses with new', sow:"Remove existing and install new (One EA/craft), fuel stripping pump hose and hose fittings"},
+            {option: "New Handle", actionRequired: true, reason: 'handle condition is unsat', action: 'replacing handle with new', sow:"Remove existing and install new (One EA/craft), fuel stripping pump handle"},
+            {option: "New valve", actionRequired: true, reason: 'valve condition is unsat', action: 'replacing valve with new', sow:"Remove existing and install new (One Ea/craft), fuel stripping pump valve handle assembly"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -652,7 +652,7 @@ const questions = [
         question: "Raw water pump housing",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "New seal", actionRequired: true, reason: 'is leaking', action: 'replacing seal with new'},
+            {option: "New seal", actionRequired: true, reason: 'is leaking', action: 'replacing seal with new', sow:"Remove existing and install new (One EA/craft), raw water pump seal assembly"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -674,7 +674,7 @@ const questions = [
         question: "Sea strainer",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Class B overhaul", actionRequired: true, reason: 'condition is unsat', action: 'accomplishing class B overhaul'},
+            {option: "Class B overhaul", actionRequired: true, reason: 'condition is unsat', action: 'accomplishing class B overhaul', sow:"Accomplish the requirements of CLASS B overhaul of (One Ea/craft) seawater strainer"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -689,7 +689,7 @@ const questions = [
         question: "Motor mounts",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Boat Alt", actionRequired: true, reason: 'are the older square version', action: 'accomplishing boat alteration to replace square motor mounts with round'},
+            {option: "Boat Alt", actionRequired: true, reason: 'are the older square version', action: 'accomplishing boat alteration to replace square motor mounts with round', sow:"REMOVE THIS AND ADD MOTOR MOUNT BA"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -729,11 +729,10 @@ const questions = [
         ]
     },
     {   section: "electrical",
-        question: "MOBI head",
+        question: "MOBI antenna",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "paint", actionRequired: true, reason: 'has missing paint', action: 'painting white'},
-            {option: "broken antenna(s)", actionRequired: true, reason: 'antennas(s) are damaged', action: 'replacing damaged antenna(s)'},
+            {option: "paint", actionRequired: true, reason: 'has missing paint', action: 'painting white', sow:"Prepare and paint MOBI antenna. Color; White"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -741,8 +740,8 @@ const questions = [
         question: "MOBI head post",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "paint", actionRequired: true, reason: 'has missing paint', action: 'painting grey'},
-            {option: "Bushing + locking pin", actionRequired: true, reason: 'bushings and locking pin are in poor condition/missing', action: "replacing bushings and double locking pin with new lanyard"},
+            {option: "paint", actionRequired: true, reason: 'has missing paint', action: 'painting grey', sow:"Prepare and paint MOBI antenna post. Color; Have Grey"},
+            {option: "Bushing + locking pin", actionRequired: true, reason: 'bushings and locking pin are in poor condition/missing', action: "replacing bushings and double locking pin with new lanyard", sow:"Remove existing and install new (One EA/craft), MOBI antenna post double locking pin and bushing."},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -793,7 +792,7 @@ const questions = [
         question: "Forward drive shaft containment hoop",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "paint", actionRequired: true, reason: 'has missing paint', action: 'painting black'},
+            {option: "paint", actionRequired: true, reason: 'has missing paint', action: 'painting black', sow:"Prepare and paint in its entirety, forward drive shaft containment hoop. Color; Black"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -801,7 +800,7 @@ const questions = [
         question: "Aft drive shaft containment hoop",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Paint", actionRequired: true, reason: 'has missing paint', action: 'painting black'},
+            {option: "Paint", actionRequired: true, reason: 'has missing paint', action: 'painting black', sow:"Prepare and paint in its entirety, aft drive shaft containment hoop. Color; Black"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -809,7 +808,7 @@ const questions = [
         question: "Drive shaft",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "paint", actionRequired: true, reason: 'has missing paint', action: 'painting black'},
+            {option: "paint", actionRequired: true, reason: 'has missing paint', action: 'painting black', sow:"Prepare and paint in its entirety, drive shaft assembly. Color; Black"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -880,7 +879,7 @@ const questions = [
         question: "Trim pump reservoir",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Change Fluid", actionRequired: true, reason: 'fluid is old', action: 'removing existing fluid and filling with new'},
+            {option: "Change Fluid", actionRequired: true, reason: 'fluid is old', action: 'removing existing fluid and filling with new', sow:"Remove existing and replenish in its entirety, trim pump oil reservoir"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -888,7 +887,7 @@ const questions = [
         question: "Seacock",
         answers: [
             {option: "Do Nothing", actionRequired: false},
-            {option: "Class B", actionRequired: true, reason: 'condition is unsat', action: 'accomplishing the requirements of class B overhaul'},
+            {option: "Class B", actionRequired: true, reason: 'condition is unsat', action: 'accomplishing the requirements of class B overhaul', sow:"Accomplish the requirements of CLASS B overhaul of (One EA/craft) sewater seacock"},
             {option: "Replace", actionRequired: true},
         ]
     },
@@ -920,6 +919,7 @@ function startingQuiz() {
     if (assessmentNum == 1) {
         localStorage.clear();
     }
+    alert(`This is assessment number ${assessmentNum}`)
     container.innerHTML = '';
     container.append(question);
     container.append(options);
@@ -938,6 +938,7 @@ function showQuestion() {
         if (i != 0 && i != questions[questionX].answers.length -1) {
             btn.setAttribute('data-reason', questions[questionX].answers[i].reason)
             btn.setAttribute('data-action', questions[questionX].answers[i].action)
+            btn.setAttribute('data-sow', questions[questionX].answers[i].sow)
         }
         btn.textContent = questions[questionX].answers[i].option;
         btn.addEventListener('click', next)
@@ -951,8 +952,8 @@ function addCustom() {
     const formTemplate = document.createElement('div')
        formTemplate.innerHTML = 
        `<hr style='margin-top:20px;margin-bottom:10px;'>
-       <h3>Custom Input:</h3>
-       <input type='text' id='customCondition' placeholder='condition is...'>
+        <h3>Custom Input:</h3>
+        <input type='text' id='customCondition' placeholder='condition is...'>
         <input type='text' id='customAction' placeholder='recommend...'>
         <button id='submitCustom'>Submit</button>`
     options.append(formTemplate)
@@ -981,7 +982,7 @@ function submitCustom() {
             }
             else if (this.attributes[2].value != 'Replace') {
                 toDo[assessmentNum][section].push(`${questions[questionX].question} ${this.attributes[3].value}, recommend ${this.attributes[4].value}.`)
-                sowArr[assessmentNum][section].push(`${this.attributes[4].value}, (x EA/craft) ${questions[questionX].question}.`)
+                sowArr[assessmentNum][section].push(`${this.attributes[5].value}.`)
             }
             questionX++;
             checkEnd();
