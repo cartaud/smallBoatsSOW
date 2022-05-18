@@ -914,6 +914,7 @@ let questionX = 0;
 //stores an object of arrays that contains the condition for each section
 let assessmentNum = JSON.parse(localStorage.getItem('assessmentNumber')) || 1;
 const toDo = JSON.parse(localStorage.getItem('toDoList')) || {1:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[], hullNum:[]}, 2:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[],hullNum:[]}}; 
+const sowArr = JSON.parse(localStorage.getItem('toDoList')) || {1:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[], hullNum:[]}, 2:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[],hullNum:[]}}; 
 //when button is pressed, the timer starts and the required html elements get appended to container
 function startingQuiz() {
     if (assessmentNum == 1) {
@@ -965,7 +966,7 @@ function submitCustom() {
     const item = questions[questionX].question
     const section = questions[questionX].section
     toDo[assessmentNum][section].push(`${item} condition is ${condition}, recommend ${recommendation}.`)
-    console.log(toDo)
+    sowArr[assessmentNum][section].push(`${recommendation},(x EA/craft) ${item}.`)
     questionX++;
     checkEnd();
 }
@@ -976,9 +977,11 @@ function submitCustom() {
             const section = questions[questionX].section
             if (this.attributes[2].value == 'Replace') {
                 toDo[assessmentNum][section].push(`${questions[questionX].question} condition is beyond preservation or repair, recommend replacing with new.`)
+                sowArr[assessmentNum][section].push(`Remove existing and install new, (x EA/craft) ${questions[questionX].question}.`)
             }
             else if (this.attributes[2].value != 'Replace') {
                 toDo[assessmentNum][section].push(`${questions[questionX].question} ${this.attributes[3].value}, recommend ${this.attributes[4].value}.`)
+                sowArr[assessmentNum][section].push(`${this.attributes[4].value}, (x EA/craft) ${questions[questionX].question}.`)
             }
             questionX++;
             checkEnd();
@@ -1008,7 +1011,9 @@ function endQuiz() { //when quiz is over, this will run
 function generate(event) {
     event.preventDefault();
     toDo[assessmentNum].hullNum.push(document.querySelector('#hullNumberInput').value);
+    sowArr[assessmentNum].hullNum.push(document.querySelector('#hullNumberInput').value);
     localStorage.setItem('assessmentNumber', JSON.stringify(assessmentNum))
     localStorage.setItem('toDoList', JSON.stringify(toDo)); //stores the sorted array in local
+    localStorage.setItem('sowArray', JSON.stringify(sowArr));
     window.open('https://cartaud.github.io/smallBoatsSOW/assets/assessment/assessmentOutput/assessmentOutput.html', '_self'); //opens up scoreboard page
 }

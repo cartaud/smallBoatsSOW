@@ -1,6 +1,6 @@
 //I should have two different local storage items, one for assessment and one of sow
-//In the assessment.js file, when adding to toDo, add the response that would be used in sow to the sow local storage
-const toDo = JSON.parse(localStorage.getItem('toDoList'));
+//In the assessment.js file, when adding to sowArr, add the response that would be used in sow to the sow local storage
+const sowArr = JSON.parse(localStorage.getItem('toDoList'));
 const sponsonOl = document.querySelector('#sponsonOl');
 const hullNumOne = document.querySelector('#hullNumOne');
 const hullNumTwo = document.querySelector('#hullNumTwo')
@@ -30,9 +30,9 @@ const hullDiffOne = document.querySelector('#hullDiffOne');
 const hullDiffTwo = document.querySelector('#hullDiffTwo');
 
 function init() {
-    hullNumOne.textContent = toDo[1].hullNum[0]
-    hullNumTwo.textContent = toDo[2].hullNum[0]
-    compareSponson(toDo[1].sponson, toDo[2].sponson)
+    hullNumOne.textContent = sowArr[1].hullNum[0]
+    hullNumTwo.textContent = sowArr[2].hullNum[0]
+    compareSponson(sowArr[1].sponson, sowArr[2].sponson)
 }
 
 function compareSponson(array1, array2) {
@@ -64,7 +64,7 @@ function writeSponson(same, diffOne, diffTwo) {
         list.textContent = element;
         sponsonDiffTwo.append(list)
     });
-    compareEngine(toDo[1].engine, toDo[2].engine)
+    compareEngine(sowArr[1].engine, sowArr[2].engine)
 }
 
 function compareEngine(array1, array2) {
@@ -96,7 +96,7 @@ function writeEngine(same, diffOne, diffTwo) {
         list.textContent = element;
         engineDiffTwo.append(list)
     });
-    compareOutdrive(toDo[1].outdrive, toDo[2].outdrive)
+    compareOutdrive(sowArr[1].outdrive, sowArr[2].outdrive)
 }
 
 function compareOutdrive(array1, array2) {
@@ -128,7 +128,7 @@ function writeOutdrive(same, diffOne, diffTwo) {
         list.textContent = element;
         outdriveDiffTwo.append(list)
     });
-    compareElectrical(toDo[1].electrical, toDo[2].electrical)
+    compareElectrical(sowArr[1].electrical, sowArr[2].electrical)
 }
 
 function compareElectrical(array1, array2) {
@@ -160,7 +160,7 @@ function writeElectrical(same, diffOne, diffTwo) {
         list.textContent = element;
         electricalDiffTwo.append(list)
     });
-    compareDeck(toDo[1].deck, toDo[2].deck)
+    compareDeck(sowArr[1].deck, sowArr[2].deck)
 }
 
 function compareDeck(array1, array2) {
@@ -192,7 +192,7 @@ function writeDeck(same, diffOne, diffTwo) {
         list.textContent = element;
         deckDiffTwo.append(list)
     });
-    compareConsole(toDo[1].console, toDo[2].console)
+    compareConsole(sowArr[1].console, sowArr[2].console)
 }
 
 function compareConsole(array1, array2) {
@@ -224,7 +224,7 @@ function writeConsole(same, diffOne, diffTwo) {
         list.textContent = element;
         consoleDiffTwo.append(list)
     });
-    compareBilge(toDo[1].bilge, toDo[2].bilge)
+    compareBilge(sowArr[1].bilge, sowArr[2].bilge)
 }
 
 function compareBilge(array1, array2) {
@@ -256,7 +256,7 @@ function writeBilge(same, diffOne, diffTwo) {
         list.textContent = element;
         bilgeDiffTwo.append(list)
     });
-    compareHull(toDo[1].hull, toDo[2].hull)
+    compareHull(sowArr[1].hull, sowArr[2].hull)
 }
 
 function compareHull(array1, array2) {
