@@ -914,7 +914,7 @@ let questionX = 0;
 //stores an object of arrays that contains the condition for each section
 let assessmentNum = JSON.parse(localStorage.getItem('assessmentNumber')) || 1;
 const toDo = JSON.parse(localStorage.getItem('toDoList')) || {1:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[], hullNum:[]}, 2:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[],hullNum:[]}}; 
-const sowArr = JSON.parse(localStorage.getItem('toDoList')) || {1:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[], hullNum:[]}, 2:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[],hullNum:[]}}; 
+const sowArr = JSON.parse(localStorage.getItem('sowArray')) || {1:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[], hullNum:[]}, 2:{hull:[],outdrive:[],sponson:[],deck:[],console:[],electrical:[],engine:[],bilge:[],hullNum:[]}}; 
 //when button is pressed, the timer starts and the required html elements get appended to container
 function startingQuiz() {
     if (assessmentNum == 1) {

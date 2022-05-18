@@ -1,6 +1,6 @@
 //I should have two different local storage items, one for assessment and one of sow
 //In the assessment.js file, when adding to sowArr, add the response that would be used in sow to the sow local storage
-const sowArr = JSON.parse(localStorage.getItem('toDoList'));
+const sowArr = JSON.parse(localStorage.getItem('sowArray'));
 const sponsonOl = document.querySelector('#sponsonOl');
 const hullNumOne = document.querySelector('#hullNumOne');
 const hullNumTwo = document.querySelector('#hullNumTwo')
