@@ -6,5 +6,10 @@ ul li {
     list-style: none;
 }
 
+ol li {
+    margin-left: 40px;
+}
 
-
+.section div {
+    margin-left: 40px;
+}

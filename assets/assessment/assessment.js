@@ -978,7 +978,7 @@ function submitCustom() {
             const section = questions[questionX].section
             if (this.attributes[2].value == 'Replace') {
                 toDo[assessmentNum][section].push(`${questions[questionX].question} condition is beyond preservation or repair, recommend replacing with new.`)
-                sowArr[assessmentNum][section].push(`Remove existing and install new, (x EA/craft) ${questions[questionX].question}.`)
+                sowArr[assessmentNum][section].push(`Remove existing and install new (x EA/craft), ${questions[questionX].question}.`)
             }
             else if (this.attributes[2].value != 'Replace') {
                 toDo[assessmentNum][section].push(`${questions[questionX].question} ${this.attributes[3].value}, recommend ${this.attributes[4].value}.`)
