@@ -16,6 +16,18 @@ const outdriveDiffTwo = document.querySelector('#outdriveDiffTwo');
 const electricalSame = document.querySelector('#electricalSame');
 const electricalDiffOne = document.querySelector('#electricalDiffOne');
 const electricalDiffTwo = document.querySelector('#electricalDiffTwo');
+const deckSame = document.querySelector('#deckSame');
+const deckDiffOne = document.querySelector('#deckDiffOne');
+const deckDiffTwo = document.querySelector('#deckDiffTwo');
+const consoleSame = document.querySelector('#consoleSame');
+const consoleDiffOne = document.querySelector('#consoleDiffOne');
+const consoleDiffTwo = document.querySelector('#consoleDiffTwo');
+const bilgeSame = document.querySelector('#bilgeSame');
+const bilgeDiffOne = document.querySelector('#bilgeDiffOne');
+const bilgeDiffTwo = document.querySelector('#bilgeDiffTwo');
+const hullSame = document.querySelector('#hullSame');
+const hullDiffOne = document.querySelector('#hullDiffOne');
+const hullDiffTwo = document.querySelector('#hullDiffTwo');
 
 function init() {
     hullNumOne.textContent = toDo[1].hullNum[0]
@@ -148,5 +160,134 @@ function writeElectrical(same, diffOne, diffTwo) {
         list.textContent = element;
         electricalDiffTwo.append(list)
     });
+    compareDeck(toDo[1].deck, toDo[2].deck)
 }
+
+function compareDeck(array1, array2) {
+    let deckSameArr = array1.filter(function(e) {
+        return array2.indexOf(e) > -1;
+    });
+    let deckDiffOne = array1.filter(function(e) {
+        return array2.indexOf(e) == -1;
+    });
+    let deckDiffTwo = array2.filter(function(e) {
+        return array1.indexOf(e) == -1;
+    });
+    writeDeck(deckSameArr, deckDiffOne, deckDiffTwo)
+}
+
+function writeDeck(same, diffOne, diffTwo) {
+    same.forEach(element => {
+        const list = document.createElement('li');
+        list.textContent = element;
+        deckSame.append(list)
+    });
+    diffOne.forEach(element => {
+        const list = document.createElement('li');
+        list.textContent = element;
+        deckDiffOne.append(list)
+    });
+    diffTwo.forEach(element => {
+        const list = document.createElement('li');
+        list.textContent = element;
+        deckDiffTwo.append(list)
+    });
+    compareConsole(toDo[1].console, toDo[2].console)
+}
+
+function compareConsole(array1, array2) {
+    let consoleSameArr = array1.filter(function(e) {
+        return array2.indexOf(e) > -1;
+    });
+    let consoleDiffOne = array1.filter(function(e) {
+        return array2.indexOf(e) == -1;
+    });
+    let consoleDiffTwo = array2.filter(function(e) {
+        return array1.indexOf(e) == -1;
+    });
+    writeConsole(consoleSameArr, consoleDiffOne, consoleDiffTwo)
+}
+
+function writeConsole(same, diffOne, diffTwo) {
+    same.forEach(element => {
+        const list = document.createElement('li');
+        list.textContent = element;
+        consoleSame.append(list)
+    });
+    diffOne.forEach(element => {
+        const list = document.createElement('li');
+        list.textContent = element;
+        consoleDiffOne.append(list)
+    });
+    diffTwo.forEach(element => {
+        const list = document.createElement('li');
+        list.textContent = element;
+        consoleDiffTwo.append(list)
+    });
+    compareBilge(toDo[1].bilge, toDo[2].bilge)
+}
+
+function compareBilge(array1, array2) {
+    let bilgeSameArr = array1.filter(function(e) {
+        return array2.indexOf(e) > -1;
+    });
+    let bilgeDiffOne = array1.filter(function(e) {
+        return array2.indexOf(e) == -1;
+    });
+    let bilgeDiffTwo = array2.filter(function(e) {
+        return array1.indexOf(e) == -1;
+    });
+    writeBilge(bilgeSameArr, bilgeDiffOne, bilgeDiffTwo)
+}
+
+function writeBilge(same, diffOne, diffTwo) {
+    same.forEach(element => {
+        const list = document.createElement('li');
+        list.textContent = element;
+        bilgeSame.append(list)
+    });
+    diffOne.forEach(element => {
+        const list = document.createElement('li');
+        list.textContent = element;
+        bilgeDiffOne.append(list)
+    });
+    diffTwo.forEach(element => {
+        const list = document.createElement('li');
+        list.textContent = element;
+        bilgeDiffTwo.append(list)
+    });
+    compareHull(toDo[1].hull, toDo[2].hull)
+}
+
+function compareHull(array1, array2) {
+    let hullSameArr = array1.filter(function(e) {
+        return array2.indexOf(e) > -1;
+    });
+    let hullDiffOne = array1.filter(function(e) {
+        return array2.indexOf(e) == -1;
+    });
+    let hullDiffTwo = array2.filter(function(e) {
+        return array1.indexOf(e) == -1;
+    });
+    writeHull(hullSameArr, hullDiffOne, hullDiffTwo)
+}
+
+function writeHull(same, diffOne, diffTwo) {
+    same.forEach(element => {
+        const list = document.createElement('li');
+        list.textContent = element;
+        hullSame.append(list)
+    });
+    diffOne.forEach(element => {
+        const list = document.createElement('li');
+        list.textContent = element;
+        hullDiffOne.append(list)
+    });
+    diffTwo.forEach(element => {
+        const list = document.createElement('li');
+        list.textContent = element;
+        hullDiffTwo.append(list)
+    });
+}
+
 init()
